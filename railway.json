@@ -1,0 +1,7 @@
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd atrás && npm install",
+    "startCommand": "cd atrás && npm start"
+  }
+}
