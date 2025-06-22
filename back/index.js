@@ -31,6 +31,16 @@ const carrusel_rutas = require("../back/routers/carrusel.routes");
 app.use("/admin", user_rutas);
 app.use("/admin/products", productos_rutas);
 app.use("/admin/carrusel/products", carrusel_rutas);
+const path = require("path");
+
+// Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, "../front/dist")));
+
+// Cualquier ruta no reconocida (SPA) redirige a index.html
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../front/dist/index.html"));
+});
+
 
 //Crear servidor y escuchar peticiones http
 app.listen(port, () => {
